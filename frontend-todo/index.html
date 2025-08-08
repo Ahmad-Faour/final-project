@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>To-Do App</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Toast notifications -->
+  <div id="toast"></div>
+
+  <!-- Sidebar  -->
+  <header class="side-panel">
+    <div class="nav-header">
+      <h1 class="app-title">My To-Do</h1>
+    </div>
+
+    <div class="nav-profile">
+      <img src="pic/profile-pic-round.jpg" alt="Profile" />
+      <div class="profile-info">
+        <span class="name">Ahmad</span>
+        <span class="role">Software Engineer</span>
+      </div>
+    </div>
+
+    <ul class="nav-items">
+      <li>
+        <button id="addPopupBtn">
+          <i class="fa-solid fa-square-plus"></i>
+          <span>Add Task</span>
+        </button>
+      </li>
+      <li>
+        <a href="#today-section">
+          <i class="fa-solid fa-calendar-day"></i>
+          <span>Today</span>
+        </a>
+      </li>
+      <li>
+        <a href="#my-projects">
+          <i class="fa-solid fa-folder"></i>
+          <span>My Projects</span>
+        </a>
+      </li>
+      <li>
+        <a href="#team-projects">
+          <i class="fa-solid fa-people-group"></i>
+          <span>Team</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class="nav-footer">
+      <button id="themeToggle" aria-label="Toggle light/dark">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="content">
+    <section class="date-bar" id="today-section">
+      <p>
+        <strong>Today</strong>
+        <span id="currentDate"></span>
+        <span id="currentTime"></span>
+      </p>
+    </section>
+
+    <section class="task-group" id="my-projects">
+      <h2>My Projects</h2>
+      <hr />
+      <div class="task-list" id="selfTasks"></div>
+      <button class="inline-add" data-type="self">
+        <i class="fa-regular fa-square-plus"></i>
+        <span>Add task</span>
+      </button>
+    </section>
+
+    <section class="task-group" id="team-projects">
+      <h2>Team Projects</h2>
+      <hr />
+      <div class="task-list" id="teamTasks"></div>
+      <button class="inline-add" data-type="team">
+        <i class="fa-regular fa-square-plus"></i>
+        <span>Add task</span>
+      </button>
+    </section>
+  </main>
+
+  <!-- Popup form -->
+  <div class="overlay" id="popupOverlay">
+    <div class="popup">
+      <h3>Add Task</h3>
+      <form id="taskForm">
+        <label>
+          Task name
+          <input type="text" id="taskName" required />
+        </label>
+        <label>
+          Due date
+          <input type="date" id="dueDate" required />
+        </label>
+        <label>
+          Due time
+          <input type="time" id="dueTime" required />
+        </label>
+        <label>
+          Assignee
+          <input
+            type="text"
+            id="assigneeName"
+            placeholder="me / John"
+            required
+          />
+        </label>
+        <label>
+          Task type
+          <select id="taskType">
+            <option value="self">Self task</option>
+            <option value="team">Team task</option>
+          </select>
+        </label>
+        <button type="submit" class="primary">Add</button>
+        <button type="button" id="closePopup" class="danger">Close</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
